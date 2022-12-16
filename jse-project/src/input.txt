@@ -1,0 +1,1 @@
+Hello world , I am text from txt file !
