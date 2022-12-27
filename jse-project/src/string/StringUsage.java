@@ -1,8 +1,4 @@
 package string;
-
-
-
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.*;
@@ -36,22 +32,44 @@ public class StringUsage {
     }
 
     //to uppercase
-    private static String toUpperCase(String text){
-        return text.toUpperCase();
+    private static void toUpperCase(String text){
+
+        text = text.toUpperCase();
+        try {
+            fw.write(text);
+            fw.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     //to lowercase
-    private static String toLowerCase(String text){
-        return text.toLowerCase();
+    private static void toLowerCase(String text) {
+
+        text = text.toLowerCase();
+        try {
+            fw.write(text);
+            fw.flush();
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
     }
 
     // determine length
-    private static int phraseLength(String phrase){
-        return phrase.length();
+    private static void phraseLength(String phrase){
+        int phraseLength = phrase.length();
+        String statement = "The phrase's length is: " + phraseLength;
+        try{
+            fw.write(statement);
+            fw.flush();
+        } catch(IOException e){
+            throw new RuntimeException(e);
+        }
     }
 
     //private methods consonants and vowels in the phrase
-    private static String consonantsAndVowels(String phrase){
+    private static void consonantsAndVowels(String phrase){
         int countConsonants = 0;
         int countVowels = 0;
         for(int i = 0; i < phrase.length(); i++){
@@ -63,11 +81,16 @@ public class StringUsage {
             }
         }
         String statement = "The number of consonants is " + countConsonants + " and the number of vowles is "+countVowels +"!";
-        return statement;
+        try{
+            fw.write(statement);
+            fw.flush();
+        } catch(IOException e){
+            throw new RuntimeException(e);
+        }
     }
 
     //count number of words in a phrase
-    private static String numberOfWords(String phrase){
+    private static void numberOfWords(String phrase){
         int countWords = 1;
         for(int i = 0; i < phrase.length(); i++){
             char currentPosition = phrase.charAt(i);
@@ -76,12 +99,17 @@ public class StringUsage {
             }
         }
         String statement = "The number of words is: " + countWords + "!";
+        try{
+            fw.write(statement);
+            fw.flush();
+        } catch(IOException e){
+            throw new RuntimeException(e);
+        }
 
-        return statement;
     }
 
     //word having maximum length
-    private static String wordMaxLength(String phrase){
+    private static void wordMaxLength(String phrase){
         int maxLen = 0;
         String max = "";
         int currentLen = 0;
@@ -100,12 +128,17 @@ public class StringUsage {
             }
         }
         String statement = "The word "+max+" has maximum length, with length of "+maxLen + " letters";
-        return  statement;
+        try{
+            fw.write(statement);
+            fw.flush();
+        } catch(IOException e){
+            throw new RuntimeException(e);
+        }
 
     }
 
     //word having minimum length
-    private  static String wordMinLength(String phrase){
+    private  static void wordMinLength(String phrase){
         int minLen = 0;
         String min = "";
         int currentLen = 0;
@@ -123,12 +156,41 @@ public class StringUsage {
             }
         }
         String statement = "The word "+min+" has minimum length, with length: "+minLen+" letterd!";
-        return statement;
+        try{
+            fw.write(statement);
+            fw.flush();
+        } catch(IOException e){
+            throw new RuntimeException(e);
+        }
     }
 
     //dublicare words
-    private static String duplicateWords(String phrase){
-            return null;
+
+    private static void duplicateWords(String phrase){
+        //cuvintele care se intilnesc de mai multe ori
+        String[] arrayOfWords;
+        ArrayList<String> duplicateWords = new ArrayList<>();
+        String delimiter = " ";
+        arrayOfWords = phrase.split(delimiter);
+        for(int i = 0; i < arrayOfWords.length; i++){
+            for(int j = i+1; j < arrayOfWords.length; j++){
+                if(arrayOfWords[i].equals(arrayOfWords[j])){
+                    duplicateWords.add(arrayOfWords[i]);
+                }
+            }
+        }
+
+
+
+        for(int i = 0; i < duplicateWords.size(); i++){
+            try{
+                fw.write(duplicateWords.get(i) + " \n");
+                fw.flush();
+            } catch(IOException e){
+                throw new RuntimeException(e);
+            }
+        }
+
     }
     public static void main(String[] args) throws IOException {
         //System.out.println(file.exists());
@@ -138,7 +200,15 @@ public class StringUsage {
             phrase = scanner.nextLine();
             System.out.println(phrase);
         }
-        fw.write(consonantsAndVowels(phrase));
-        fw.flush();
+        //outupt in fiecare metoda
+        //
+        toUpperCase(phrase);
+        toLowerCase(phrase);
+        phraseLength(phrase);
+        consonantsAndVowels(phrase);
+        numberOfWords(phrase);
+        wordMaxLength(phrase);
+        wordMinLength(phrase);
+        duplicateWords(phrase);
     }
 }

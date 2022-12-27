@@ -7,8 +7,11 @@
     <list default="true" id="efb22fb9-550b-444e-b559-10096819e283" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/jse-project/collections/CollectionUsage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jse-project/collections/CollectionUsage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jse-project/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jse-project/input.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/jse-project/string/StringUsage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jse-project/string/StringUsage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/collections/CollectionUsage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collections/CollectionUsage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/output.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/string/StringUsage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/string/StringUsage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,5 +63,15 @@
       <updated>1671039192933</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
